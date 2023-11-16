@@ -31,4 +31,26 @@ class Spaceship extends Floater
       triangle(xCorners[0], yCorners[0], xCorners[1], yCorners[1], xCorners[3], yCorners[3]);
       triangle(xCorners[3], yCorners[3], xCorners[1], yCorners[1], xCorners[2], yCorners[2]);
     }  
+    
+    public void hyperspace(){
+      for(int i =0; i < corners; i++){
+        xCorners[i] += (int)(Math.random()*90);
+        yCorners[i] += (int)(Math.random()*90);
+      }
+    }
+    public void moveleft(){
+      for(int i =0; i < corners; i++){
+        xCorners[i] -= 20;
+      }
+    
+    }
+    public void moveright(){
+     for(int i =0; i < corners; i++){
+       xCorners[i] += 20;
+    }
+    public void accelerate(){
+    
+    }
+
+    }
 }
