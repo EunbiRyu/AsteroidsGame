@@ -29,6 +29,8 @@ class Spaceship extends Floater
     myPointDirection = 0;
       
   }
+  public double getX(){return myCenterX;}
+  public double getY(){return myCenterY;}
   //public void show(){
   //  fill(myColor);
   //  triangle(xCorners[5], yCorners[5], xCorners[1], yCorners[1], xCorners[4], yCorners[4]);
