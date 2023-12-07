@@ -2,6 +2,7 @@
 Spaceship bob = new Spaceship();
 Star[] space = new Star[500];
 ArrayList <Asteroid> yay = new ArrayList<Asteroid>();
+ArrayList <Bullet> ack = new ArrayList<Bullet>();
 
 public void setup(){
   background(0);
@@ -20,7 +21,11 @@ public void draw(){
   text("Welcome to the stars...", 20, 20);
   bob.move();
   bob.show();
-
+  
+  for(int i=0; i< ack.size();i++){
+    ack.get(i).move();
+    ack.get(i).show();
+  }
   for(int i=0; i< yay.size();i++){
     yay.get(i).move();
     yay.get(i).show();
@@ -38,13 +43,16 @@ public void keyPressed(){
   if(key == 'h'){ // hyperspace
     bob.hyperspace();
   }
-  if(key == 'a'){ // right
+  else if(key == 'a'){ // right
     bob.turn(5);
   }
-  if(key == 's'){ // accelerate
-    bob.accelerate(0.2);
-  }
-  if(key == 'd'){ // left
+  else if(key == 'd'){ // left
     bob.turn(-5);
   }
+  else if(key == 's'){ // accelerate
+    bob.accelerate(0.2);
+  }
+
+  else if(key == ' ')
+    ack.add(new Bullet(bob));
 }
