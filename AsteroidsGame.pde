@@ -25,10 +25,19 @@ public void draw(){
   for(int i=0; i< ack.size();i++){
     ack.get(i).move();
     ack.get(i).show();
+    for(int j=0; j< yay.size();j++){
+      float e = dist((float)ack.get(i).getX(), (float)ack.get(i).getY(), (float)yay.get(j).getX(), (float)yay.get(j).getY());
+      if(e<20){
+        yay.remove(j);
+        ack.remove(i);
+        break;
+      }
+    }
   }
   for(int i=0; i< yay.size();i++){
     yay.get(i).move();
     yay.get(i).show();
+    
     float d = dist((float)bob.getX(), (float)bob.getY(), (float)yay.get(i).getX(), (float)yay.get(i).getY());
     if(d<20)
       yay.remove(i);
