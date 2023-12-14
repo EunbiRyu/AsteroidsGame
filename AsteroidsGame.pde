@@ -68,7 +68,7 @@ public void draw(){
    rect(0,0,500,500);
    fill(0);
    textSize(26);
-   text("Congradulations, you have survived!", 20, 250);
+   text("Congradulations, you have survived!", 30, 250);
    
   }
   
