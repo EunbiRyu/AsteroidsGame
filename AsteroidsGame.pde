@@ -4,6 +4,11 @@ Star[] space = new Star[500];
 ArrayList <Asteroid> yay = new ArrayList<Asteroid>();
 ArrayList <Bullet> ack = new ArrayList<Bullet>();
 
+///
+int hp = 5;
+int score = 0;
+///
+
 public void setup(){
   background(0);
   size(500,500);
@@ -19,6 +24,10 @@ public void draw(){
   textSize(15);
   fill(255);
   text("Welcome to the stars...", 20, 20);
+  textSize(20);
+  text("HP: " +hp,20,40);
+  text("Score: " +score,20,60);
+  
   bob.move();
   bob.show();
   
@@ -30,6 +39,7 @@ public void draw(){
       if(e<20){
         yay.remove(j);
         ack.remove(i);
+        score++;
         break;
       }
     }
@@ -39,9 +49,29 @@ public void draw(){
     yay.get(i).show();
     
     float d = dist((float)bob.getX(), (float)bob.getY(), (float)yay.get(i).getX(), (float)yay.get(i).getY());
-    if(d<20)
+    if(d<20){
       yay.remove(i);
+      if(hp > 0)
+        hp--;
+    }
   }
+  
+ if(hp <=0){
+   fill(#022850);
+   rect(0,0,500,500);
+   fill(255);
+   textSize(26);
+   text("Better luck on your next journey", 50, 250);
+  }
+ if(score >=25){
+   fill(#EDBE00);
+   rect(0,0,500,500);
+   fill(0);
+   textSize(26);
+   text("Congradulations, you have survived!", 20, 250);
+   
+  }
+  
   for(int i =0; i<space.length; i++){
     space[i].show();
   }
